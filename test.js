@@ -12,7 +12,7 @@ describe("Tests:", () => {
             assert.equal(sumOfOthers([1, 2, 3]).join(), "5,4,3");
         });
         it("Array of zeros", () => {
-            assert.equal(sumOfOthers([0,0,0,0]).join(), "0,0,0,0");
+            assert.equal(sumOfOthers([0, 0, 0, 0]).join(), "0,0,0,0");
         });
         it("Empty array", () => {
             assert.equal(sumOfOthers([]).join(), []);
@@ -60,15 +60,15 @@ describe("Tests:", () => {
 
     describe("recursion function:", () => {
         const tree = { value: 100, left: { value: 90, left: { value: 70 }, right: { value: 99 } }, right: { value: 120, left: { value: 110 }, right: { value: 130 } } };
-        const treeHard = { value: 100, left: { value: 90, left: { value: 70, left: { value: 100, left: { value: 90, left: { value: 70 }, right: { value: 99 } }, right: { value: 120, left: { value: 110 }, right: { value: 130 } } } }, right: { value: 99 } }, right: { value: 120, left: { value: 110, left: {value: 100, left: { value: 90, left: { value: 70 }, right: { value: 99 } }, right: { value: 120, left: { value: 110 }, right: { value: 130 } } } }, right: { value: 130, left: {value: 100, left: { value: 90, left: { value: 70 }, right: { value: 99 } }, right: { value: 120, left: { value: 110 }, right: { value: 130 } } }, right: {value: 100, left: { value: 90, left: { value: 70 }, right: { value: 99 } }, right: { value: 120, left: { value: 110 }, right: { value: 130, left: {value: 1, left: { value: 2, right: { value: 100, left: { value: 90, left: { value: 70, left: {value: 100, left: { value: 90, left: { value: 70 }, right: { value: 99 } }, right: { value: 120, left: { value: 110 }, right: { value: 130 } } } }, right: { value: 99 } }, right: { value: 120, left: { value: 110, left: {value: 100, left: { value: 90, left: { value: 70 }, right: { value: 99 } }, right: { value: 120, left: { value: 110 }, right: { value: 130 } } } }, right: { value: 130, left: {value: 100, left: { value: 90, left: { value: 70 }, right: { value: 99 } }, right: { value: 120, left: { value: 110 }, right: { value: 130 } } }, right: {value: 100, left: { value: 90, left: { value: 70 }, right: { value: 99 } }, right: { value: 120, left: { value: 110 }, right: { value: 130, left: {value: 1, left: { value: 2 } } } } } } } } } } } } } } } };
-        it("Simple tree", () => { 
+        const treeHard = { value: 100, left: { value: 90, left: { value: 70, left: { value: 100, left: { value: 90, left: { value: 70 }, right: { value: 99 } }, right: { value: 120, left: { value: 110 }, right: { value: 130 } } } }, right: { value: 99 } }, right: { value: 120, left: { value: 110, left: { value: 100, left: { value: 90, left: { value: 70 }, right: { value: 99 } }, right: { value: 120, left: { value: 110 }, right: { value: 130 } } } }, right: { value: 130, left: { value: 100, left: { value: 90, left: { value: 70 }, right: { value: 99 } }, right: { value: 120, left: { value: 110 }, right: { value: 130 } } }, right: { value: 100, left: { value: 90, left: { value: 70 }, right: { value: 99 } }, right: { value: 120, left: { value: 110 }, right: { value: 130, left: { value: 1, left: { value: 2, right: { value: 100, left: { value: 90, left: { value: 70, left: { value: 100, left: { value: 90, left: { value: 70 }, right: { value: 99 } }, right: { value: 120, left: { value: 110 }, right: { value: 130 } } } }, right: { value: 99 } }, right: { value: 120, left: { value: 110, left: { value: 100, left: { value: 90, left: { value: 70 }, right: { value: 99 } }, right: { value: 120, left: { value: 110 }, right: { value: 130 } } } }, right: { value: 130, left: { value: 100, left: { value: 90, left: { value: 70 }, right: { value: 99 } }, right: { value: 120, left: { value: 110 }, right: { value: 130 } } }, right: { value: 100, left: { value: 90, left: { value: 70 }, right: { value: 99 } }, right: { value: 120, left: { value: 110 }, right: { value: 130, left: { value: 1, left: { value: 2 } } } } } } } } } } } } } } } };
+        it("Simple tree", () => {
             assert.equal(JSON.stringify(recursion(tree)), "[[100],[90,120],[70,99,110,130]]");
         });
         it("Hard tree", () => {
             assert.equal(JSON.stringify(recursion(treeHard)), "[[100],[90,120],[70,99,110,130],[100,100,100,100],[90,120,90,120,90,120,90,120],[70,99,110,130,70,99,110,130,70,99,110,130,70,99,110,130],[1],[2],[100],[90,120],[70,99,110,130],[100,100,100,100],[90,120,90,120,90,120,90,120],[70,99,110,130,70,99,110,130,70,99,110,130,70,99,110,130],[1],[2]]");
         });
         it("Only root element", () => {
-            assert.equal(JSON.stringify(recursion({value: 100 })), "[[100]]");
+            assert.equal(JSON.stringify(recursion({ value: 100 })), "[[100]]");
         });
     });
 });
