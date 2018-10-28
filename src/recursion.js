@@ -1,4 +1,5 @@
 const recursion = function recursion(three) {
+  if (!three) return "The input parameter must be a binary tree.";
   const data = [];
 
   function traverse(node, lvl) {
